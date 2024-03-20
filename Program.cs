@@ -26,15 +26,15 @@
                         break;
                     case 1:
                         Console.WriteLine("Has seleccionado texto uno");
-                        textoUno();
+                        menuTextoUno();
                         break;
                     case 2:
                         Console.WriteLine("Has seleccionado texto dos");
-                        textoDos();
+                        menuTextoDos();
                         break;
                     case 3:
                         Console.WriteLine("Has seleccionado texto tres");
-                        textoTres();
+                        menuTextoTres();
                         break;
                     default:
                         Console.WriteLine("La opcion seleccionada no corresponde con ninguna");
@@ -64,7 +64,55 @@
         }
 
 
-        static private void textoUno()
+        static private void menuTextoUno()
+        {
+            int opcionUsuario;
+            bool cerrarMenu = false;
+
+            do
+            {
+                opcionUsuario = menuYSeleccionTextoUno();
+
+                switch (opcionUsuario)
+                {
+                    case 0:
+                        Console.WriteLine("Has seleccionado volver");
+                        cerrarMenu = true;
+                        break;
+                    case 1:
+                        Console.WriteLine("has indicado modificar línea");
+                        
+                        break;
+                    case 2:
+                        Console.WriteLine("Has seleccionado agregar texto en posicion especifica");
+                        textoUnoPosicion();
+                        break;
+                    
+                    default:
+                        Console.WriteLine("La opcion seleccionada no corresponde con ninguna");
+                        break;
+                }
+
+            } while (!cerrarMenu);
+        }
+
+
+        static private int menuYSeleccionTextoUno()
+        {
+            int opcionSeleccionada;
+            Console.WriteLine("Elija una opción");
+            Console.WriteLine("_________________________________________");
+            Console.WriteLine("0.Volver");
+            Console.WriteLine("1.Modificar línea");
+            Console.WriteLine("2.Agregar texto en posición especifica");
+            Console.WriteLine("_________________________________________");
+            opcionSeleccionada = Convert.ToInt32(Console.ReadLine());
+            return opcionSeleccionada;
+
+        }
+
+
+        static private void textoUnoPosicion()
         {
             using (StreamReader sr = new StreamReader(rutaTextoUno))
             {
@@ -122,7 +170,58 @@
 
             
         }
-        static private void textoDos()
+
+
+
+
+
+        static private void menuTextoDos()
+        {
+            int opcionUsuario;
+            bool cerrarMenu = false;
+
+            do
+            {
+                opcionUsuario = menuYSeleccionTextoUno();
+
+                switch (opcionUsuario)
+                {
+                    case 0:
+                        Console.WriteLine("Has seleccionado volver");
+                        cerrarMenu = true;
+                        break;
+                    case 1:
+                        Console.WriteLine("has indicado modificar línea");
+
+                        break;
+                    case 2:
+                        Console.WriteLine("Has seleccionado agregar texto en posicion especifica");
+                        textoUnoPosicion();
+                        break;
+
+                    default:
+                        Console.WriteLine("La opcion seleccionada no corresponde con ninguna");
+                        break;
+                }
+
+            } while (!cerrarMenu);
+        }
+
+
+        static private int menuYSeleccionTextoDos()
+        {
+            int opcionSeleccionada;
+            Console.WriteLine("Elija una opción");
+            Console.WriteLine("_________________________________________");
+            Console.WriteLine("0.Volver");
+            Console.WriteLine("1.Modificar línea");
+            Console.WriteLine("2.Agregar texto en posición especifica");
+            Console.WriteLine("_________________________________________");
+            opcionSeleccionada = Convert.ToInt32(Console.ReadLine());
+            return opcionSeleccionada;
+
+        }
+        static private void textoDosPosicion()
         {
             using (StreamReader sr = new StreamReader(rutaTextoDos))
             {
@@ -180,7 +279,55 @@
 
 
         }
-        static private void textoTres()
+
+
+        static private void menuTextoTres()
+        {
+            int opcionUsuario;
+            bool cerrarMenu = false;
+
+            do
+            {
+                opcionUsuario = menuYSeleccionTextoUno();
+
+                switch (opcionUsuario)
+                {
+                    case 0:
+                        Console.WriteLine("Has seleccionado volver");
+                        cerrarMenu = true;
+                        break;
+                    case 1:
+                        Console.WriteLine("has indicado modificar línea");
+
+                        break;
+                    case 2:
+                        Console.WriteLine("Has seleccionado agregar texto en posicion especifica");
+                        textoUnoPosicion();
+                        break;
+
+                    default:
+                        Console.WriteLine("La opcion seleccionada no corresponde con ninguna");
+                        break;
+                }
+
+            } while (!cerrarMenu);
+        }
+
+
+        static private int menuYSeleccionTextoTres()
+        {
+            int opcionSeleccionada;
+            Console.WriteLine("Elija una opción");
+            Console.WriteLine("_________________________________________");
+            Console.WriteLine("0.Volver");
+            Console.WriteLine("1.Modificar línea");
+            Console.WriteLine("2.Agregar texto en posición especifica");
+            Console.WriteLine("_________________________________________");
+            opcionSeleccionada = Convert.ToInt32(Console.ReadLine());
+            return opcionSeleccionada;
+
+        }
+        static private void textoTresPoscion()
         {
             using (StreamReader sr = new StreamReader(rutaTextoTres))
             {
