@@ -81,7 +81,7 @@
                         break;
                     case 1:
                         Console.WriteLine("has indicado modificar línea");
-                        
+                        modificarLineaTUno();
                         break;
                     case 2:
                         Console.WriteLine("Has seleccionado agregar texto en posicion especifica");
@@ -112,7 +112,7 @@
         }
 
 
-        static private void textoUnoPosicion()
+        static private void modificarLineaTUno()
         {
             using (StreamReader sr = new StreamReader(rutaTextoUno))
             {
@@ -121,16 +121,60 @@
                 Console.WriteLine("Contenido del archivo:\n" + contenido);
 
                 Console.WriteLine("-----------------------------------------------------------------------");
+            }
+            Console.WriteLine("Introduzca el texto que deseas");
+            
+            string textoUsuario = Console.ReadLine();
+            Console.WriteLine("Introduzca la línea que deseas introducir el texto");
+            int numeroLinea = Convert.ToInt32(Console.ReadLine());
+
+            try
+            {
+                
+                string[] lineas = File.ReadAllLines(rutaTextoUno);
+
+                
+                if (numeroLinea >= 1 && numeroLinea <= lineas.Length)
+                {
+                    
+                    lineas[numeroLinea - 1] = textoUsuario;
+
+                   
+                    File.WriteAllLines(rutaTextoUno, lineas);
+
+                    Console.WriteLine("El texto se ha escrito correctamente en la línea especificada.");
+                }
+                else
+                {
+                    Console.WriteLine("El número de línea especificado está fuera del rango del archivo.");
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("Error al leer/escribir el archivo: " + e.Message);
+            }
+        }
 
 
+        static private void textoUnoPosicion()
+        {
+                using (StreamReader sr = new StreamReader(rutaTextoUno))
+                {
+                    string contenido = sr.ReadToEnd();
+                    Console.WriteLine("-----------------------------------------------------------------------");
+                    Console.WriteLine("Contenido del archivo:\n" + contenido);
 
-                Console.WriteLine("Introduzca el texto que deseas");
-                string textoUsuario = Console.ReadLine();
-                Console.WriteLine("Introduzca la línea que deseas introducir el texto");
-                int numLinea = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("introduzca la posicion");
-                int posicion = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("-----------------------------------------------------------------------");
 
+                }
+
+                    Console.WriteLine("Introduzca el texto que deseas");
+                    string textoUsuario = Console.ReadLine();
+                    Console.WriteLine("Introduzca la línea que deseas introducir el texto");
+                    int numLinea = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("introduzca la posicion");
+                    int posicion = Convert.ToInt32(Console.ReadLine());
+                
                 try
                 {
                     string[] filas = File.ReadAllLines(rutaTextoUno);
@@ -165,7 +209,7 @@
                     Console.WriteLine("Error al leer/escribir el archivo: " + ex.Message);
                 }
 
-            }
+            
 
 
             
@@ -192,7 +236,7 @@
                         break;
                     case 1:
                         Console.WriteLine("has indicado modificar línea");
-
+                        modificarLineaTDos();
                         break;
                     case 2:
                         Console.WriteLine("Has seleccionado agregar texto en posicion especifica");
@@ -221,6 +265,53 @@
             return opcionSeleccionada;
 
         }
+        static private void modificarLineaTDos()
+        {
+
+            using (StreamReader sr = new StreamReader(rutaTextoUno))
+            {
+                string contenido = sr.ReadToEnd();
+                Console.WriteLine("-----------------------------------------------------------------------");
+                Console.WriteLine("Contenido del archivo:\n" + contenido);
+
+                Console.WriteLine("-----------------------------------------------------------------------");
+            }
+
+            Console.WriteLine("Introduzca el texto que deseas");
+            string textoUsuario = Console.ReadLine();
+            Console.WriteLine("Introduzca la línea que deseas introducir el texto");
+            int numeroLinea = Convert.ToInt32(Console.ReadLine());
+
+            try
+            {
+
+                string[] lineas = File.ReadAllLines(rutaTextoUno);
+
+
+                if (numeroLinea >= 1 && numeroLinea <= lineas.Length)
+                {
+
+                    lineas[numeroLinea - 1] = textoUsuario;
+
+
+                    File.WriteAllLines(rutaTextoUno, lineas);
+
+                    Console.WriteLine("El texto se ha escrito correctamente en la línea especificada.");
+                }
+                else
+                {
+                    Console.WriteLine("El número de línea especificado está fuera del rango del archivo.");
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("Error al leer/escribir el archivo: " + e.Message);
+            }
+        }
+
+
+
+
         static private void textoDosPosicion()
         {
             using (StreamReader sr = new StreamReader(rutaTextoDos))
@@ -230,7 +321,7 @@
                 Console.WriteLine("Contenido del archivo:\n" + contenido);
 
                 Console.WriteLine("-----------------------------------------------------------------------");
-
+            }
 
 
                 Console.WriteLine("Introduzca el texto que deseas");
@@ -274,7 +365,7 @@
                     Console.WriteLine("Error al leer/escribir el archivo: " + ex.Message);
                 }
 
-            }
+            
 
 
 
@@ -298,7 +389,7 @@
                         break;
                     case 1:
                         Console.WriteLine("has indicado modificar línea");
-
+                        modificarLineaTTres();
                         break;
                     case 2:
                         Console.WriteLine("Has seleccionado agregar texto en posicion especifica");
@@ -327,6 +418,54 @@
             return opcionSeleccionada;
 
         }
+        static private void modificarLineaTTres()
+        {
+            using (StreamReader sr = new StreamReader(rutaTextoUno))
+            {
+                string contenido = sr.ReadToEnd();
+                Console.WriteLine("-----------------------------------------------------------------------");
+                Console.WriteLine("Contenido del archivo:\n" + contenido);
+
+                Console.WriteLine("-----------------------------------------------------------------------");
+            }
+
+
+            Console.WriteLine("Introduzca el texto que deseas");
+            string textoUsuario = Console.ReadLine();
+            Console.WriteLine("Introduzca la línea que deseas introducir el texto");
+            int numeroLinea = Convert.ToInt32(Console.ReadLine());
+
+            try
+            {
+
+                string[] lineas = File.ReadAllLines(rutaTextoUno);
+
+
+                if (numeroLinea >= 1 && numeroLinea <= lineas.Length)
+                {
+
+                    lineas[numeroLinea - 1] = textoUsuario;
+
+
+                    File.WriteAllLines(rutaTextoUno, lineas);
+
+                    Console.WriteLine("El texto se ha escrito correctamente en la línea especificada.");
+                }
+                else
+                {
+                    Console.WriteLine("El número de línea especificado está fuera del rango del archivo.");
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("Error al leer/escribir el archivo: " + e.Message);
+            }
+        }
+
+
+
+
+
         static private void textoTresPoscion()
         {
             using (StreamReader sr = new StreamReader(rutaTextoTres))
@@ -336,7 +475,7 @@
                 Console.WriteLine("Contenido del archivo:\n" + contenido);
 
                 Console.WriteLine("-----------------------------------------------------------------------");
-
+            }
 
 
                 Console.WriteLine("Introduzca el texto que deseas");
@@ -380,7 +519,7 @@
                     Console.WriteLine("Error al leer/escribir el archivo: " + ex.Message);
                 }
 
-            }
+            
 
 
 
